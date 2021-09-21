@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-axios.defaults.baseURL = "http://localhost:3001";
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://tennis365-api.herokuapp.com";
 // const useAxios = ({ url, method, body = null, params = null }) => {
 //   const [response, setResponse] = useState(null);
 //   const [errorMessage, setErrorMessage] = useState("");
