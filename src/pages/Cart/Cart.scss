@@ -1,0 +1,144 @@
+@import "../../variables.scss";
+
+.cart {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  .cart-is-empty {
+    text-align: center;
+  }
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 2rem;
+    list-style-type: none;
+    li {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .img-description {
+      display: flex;
+      flex-direction: row;
+      gap: 5rem;
+      .cart__img {
+        width: 40%;
+
+        img {
+          width: 100%;
+        }
+      }
+      .cart__description {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 40px;
+          // height: 30px;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .cart_bottom {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    // align-items: flex-end;
+    width: 100%;
+    .empty-div {
+      width: 50%;
+    }
+    .order-summary {
+      width: 50%;
+      max-width: 50%;
+      background-color: #f4f4f4;
+      border: 1px solid #e4e4e4;
+      .total {
+        padding: 1rem;
+        border-bottom: 1px solid #e4e4e4;
+        span:first-child {
+          width: 50%;
+        }
+        span:last-child {
+          float: right;
+        }
+      }
+      .cart__orderBtn {
+        padding: 1rem;
+        float: right;
+      }
+    }
+  }
+}
+
+// @media (min-width: $breakpoint-pc) {
+//   .cart{
+
+//   }
+// }
+
+// .cart {
+//   width: 85%;
+//   max-width: 900px;
+//   margin: 0 auto;
+
+//   .horizontalDisplay {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//     // height: 100%;
+
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 0 auto;
+//     width: 90%;
+//     border: 1px solid black;
+//     // height: 100%;
+//     // max-height: 210px;
+//     // margin-bottom: 1.5rem;
+//     // &:after {
+//     //   padding-bottom: 45%;
+//     //   display: block;
+//     //   content: "";
+//     // }
+//   }
+
+//   .verticalDisplay {
+//     border: 1px solid black;
+//     width: 90%;
+//     margin: 0 auto;
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     gap: 1rem;
+//     // height: 100%;
+//     // border-right: 1px solid black;
+//     .menu {
+//       margin: 0 auto;
+//       width: 80%;
+//       height: 100%;
+//       max-height: 400px;
+//       &:after {
+//         padding-bottom: 56.25%;
+//         display: block;
+//         content: "";
+//       }
+//       .menu__img {
+//         height: 100%;
+//         min-height: 100px;
+//         img {
+//           width: 100%;
+//           height: 100%;
+//           // height: 200px;
+//         }
+//       }
+//       .menu__description {
+//         height: 100%;
+//         min-height: 150px;
+//       }
+//     }
+//   }
+// }

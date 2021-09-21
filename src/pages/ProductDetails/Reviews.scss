@@ -1,0 +1,33 @@
+.reviews-container {
+  position: relative;
+  .reviews__top {
+    padding: 1rem;
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+  &::before {
+    height: 0.5rem;
+    display: block;
+    margin: 3rem 0;
+    content: "";
+    background-color: gray;
+  }
+  .reviews {
+    padding: 1rem;
+    p {
+      //   width: 100ch;
+      max-width: 74ch;
+      line-height: 1.7rem;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      padding: 1.5rem 24px;
+      background-color: #f4f4f4;
+    }
+    .review-box {
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+}

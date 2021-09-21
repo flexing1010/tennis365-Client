@@ -1,0 +1,61 @@
+@import "../../variables.scss";
+
+#display-item {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  max-width: 1250px;
+
+  gap: 1rem;
+  //   background-color: black;
+  .item {
+    margin: 0 auto;
+    width: 48%;
+    max-width: 600px;
+    padding: 1rem;
+    list-style-type: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    .item__img {
+      width: 100%;
+
+      padding: 0 2.5rem;
+      text-align: center;
+      img {
+        width: 80%;
+        max-width: 120px;
+      }
+    }
+    .item__descriptions {
+      display: flex;
+      flex-direction: column;
+      .item__descriptions-desc {
+        color: #757575;
+        margin-top: 1rem;
+        line-height: 1.3rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  #display-item {
+    .item {
+      display: flex;
+
+      .item__img {
+        width: 40%;
+
+        img {
+          width: 100%;
+          //   max-width: 200px;
+        }
+      }
+      .item__descriptions {
+        width: 60%;
+      }
+      //   width: 30%;
+    }
+  }
+}

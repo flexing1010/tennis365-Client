@@ -1,0 +1,47 @@
+.post-item__edit {
+  // width: 100%;
+  display: flex;
+  flex-direction: row;
+  .item__specs {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      input {
+        font-size: 1.1rem;
+        width: 90%;
+      }
+      select {
+        width: 50%;
+      }
+    }
+  }
+  .item__description {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .edit-img {
+    .imgUrl-label {
+      margin-bottom: 1rem;
+    }
+    .editedImgs {
+      margin-bottom: 1rem;
+    }
+    .img-preview {
+      width: 60%;
+      height: 250px;
+      margin: 0 auto;
+      text-align: center;
+      img {
+        height: 100%;
+        max-width: 220px;
+        width: 100%;
+      }
+    }
+  }
+}

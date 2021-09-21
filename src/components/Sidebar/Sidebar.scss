@@ -1,0 +1,60 @@
+@import "../../variables.scss";
+
+.hide-sidebar {
+  transform: unset;
+  transform: translateX(-230px);
+  background-color: black;
+}
+.sidebar {
+  position: absolute;
+  top: 10;
+  left: 0;
+  width: 230px;
+  height: 100%;
+  z-index: 5;
+  // transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  background-color: white;
+  ul {
+    color: rgba(0, 0, 0, 0.5);
+    // margin: 5rem 30px;
+    margin: 5rem 0 5rem 30px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    padding: 1rem;
+
+    li {
+      margin: 20px 0;
+      list-style-type: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      &:hover {
+        cursor: pointer;
+        color: black;
+        transition: 0.2s ease-in-out;
+      }
+      a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.5);
+        &:hover {
+          cursor: pointer;
+          color: black;
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1650px) {
+  .sidebar {
+    position: absolute;
+    // left: 6rem;
+    left: 16.5%;
+    // top: ;
+    width: 200px;
+  }
+  .show-sidebar {
+    transform: unset;
+  }
+}

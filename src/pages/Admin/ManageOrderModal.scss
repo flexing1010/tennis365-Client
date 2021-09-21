@@ -1,0 +1,23 @@
+.transaction-modal {
+  width: 100%;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    .col-1 {
+      width: 20%;
+      text-align: center;
+    }
+    tr {
+      //   border-bottom: 1px solid black;
+      td {
+        padding: 0.5rem 1rem;
+        border: 1px solid #333;
+
+        .transaction-modal__item-list {
+          display: flex;
+        }
+      }
+    }
+  }
+}

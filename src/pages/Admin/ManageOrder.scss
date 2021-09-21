@@ -1,0 +1,16 @@
+.tui-grid-header-area {
+  pointer-events: none;
+  cursor: default;
+}
+.merchant_uid {
+  div {
+    text-decoration: underline #4e43a2;
+    font-style: italic;
+    // border-bottom: 1px solid darkblue;
+    // width: 75%;
+    cursor: pointer;
+    &:hover {
+      color: blue;
+    }
+  }
+}

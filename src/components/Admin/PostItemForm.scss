@@ -1,0 +1,30 @@
+.post-item__form {
+  width: 400px;
+  margin: 0 auto;
+  .item__specs {
+    display: flex;
+    flex-direction: column;
+    div {
+      display: flex;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      label {
+        width: 30%;
+      }
+    }
+  }
+  .item__description {
+    display: flex;
+    flex-direction: column;
+  }
+  textarea {
+    margin: 1rem 0;
+  }
+  button {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  .cover-img-input {
+    margin-bottom: 1rem;
+  }
+}

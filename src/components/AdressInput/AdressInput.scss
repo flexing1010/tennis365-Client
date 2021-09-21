@@ -1,0 +1,39 @@
+.address {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  .address__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 11.1%;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(245, 245, 245, 1);
+    .fa-icon {
+      color: #cccccc;
+    }
+  }
+  .address__input {
+    width: 100%;
+    .find-address {
+      height: 50%;
+      input {
+        // padding: 0.7rem;
+        // border: none;
+        width: 70%;
+        height: 100%;
+      }
+    }
+
+    .detail-address {
+      width: 100%;
+      height: 50%;
+      input {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
