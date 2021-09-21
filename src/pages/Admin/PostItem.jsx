@@ -36,7 +36,7 @@ const PostItem = () => {
     formData.append("itemInfo", JSON.stringify(itemInfo));
     axios
       .post(
-        "http://localhost:3001/admin/post-item",
+        "https://tennis365-api.herokuapp.com/admin/post-item",
 
         formData
       )

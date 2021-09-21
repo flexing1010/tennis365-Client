@@ -25,7 +25,7 @@ const Login = () => {
   const postLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", {
+      .post("https://tennis365-api.herokuapp.com/login", {
         username: values.username,
         password: values.password,
       })

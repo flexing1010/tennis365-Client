@@ -22,7 +22,7 @@ const ProductDetails = () => {
       return alert("장바구니를 사용하려면 로그인 하셔야 합니다");
     } else {
       axios
-        .post("http://localhost:3001/cart", {
+        .post("https://tennis365-api.herokuapp.com/cart", {
           user_id: authState.id,
           product_id: product.id,
           quantity: 1,

@@ -29,10 +29,13 @@ const EditPost = () => {
 
   const editPost = (e) => {
     e.preventDefault();
-    axios.patch(`http://localhost:3001/board/view-post/${id}/edit`, {
-      content,
-      username: authState.username,
-    });
+    axios.patch(
+      `https://tennis365-api.herokuapp.com/board/view-post/${id}/edit`,
+      {
+        content,
+        username: authState.username,
+      }
+    );
   };
 
   useEffect(() => {

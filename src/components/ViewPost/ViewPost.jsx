@@ -28,11 +28,14 @@ const ViewPost = () => {
   const deletePost = () => {
     if (window.confirm("글을 삭제하시겠습니까?")) {
       axios
-        .delete(`http://localhost:3001/board/view-post/${id}/delete`, {
-          data: {
-            id,
-          },
-        })
+        .delete(
+          `https://tennis365-api.herokuapp.com/board/view-post/${id}/delete`,
+          {
+            data: {
+              id,
+            },
+          }
+        )
         .then((res) => {
           if (res.status === 200) {
             history.push("/board/qna");

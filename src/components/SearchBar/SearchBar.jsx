@@ -17,7 +17,7 @@ const SearchBar = () => {
   const search = (e) => {
     e.preventDefault();
     axios
-      .get("http://localhost:3001/search", {
+      .get("https://tennis365-api.herokuapp.com/search", {
         params: { keyword },
       })
       .then((res) => {

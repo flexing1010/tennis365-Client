@@ -38,7 +38,7 @@ const Join = () => {
   const postJoin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/join", {
+      .post("https://tennis365-api.herokuapp.com/join", {
         name: values.name,
         username: values.username,
         email: values.email,
@@ -63,7 +63,7 @@ const Join = () => {
     <div className="form-container">
       {errorMessage && <span>{errorMessage}</span>}
       <form
-        action="http://localhost:3001/join"
+        action="https://tennis365-api.herokuapp.com/join"
         method="POST"
         onSubmit={postJoin}
       >

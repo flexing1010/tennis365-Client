@@ -46,7 +46,7 @@ const Reviews = () => {
     closeModal();
 
     axios
-      .post(`http://localhost:3001/view/${id}/review`, {
+      .post(`https://tennis365-api.herokuapp.com/view/${id}/review`, {
         reviewBody,
         createdAt,
         username: authState.username,
@@ -91,7 +91,7 @@ const Reviews = () => {
                 filterItemList={filterReviews}
                 targetId={review.id}
                 text={"리뷰 삭제"}
-                url={`http://localhost:3001/view/${id}/review`}
+                url={`https://tennis365-api.herokuapp.com/view/${id}/review`}
               />
               <ul className="review-box__info">
                 <li>

@@ -33,7 +33,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
     // console.log(coverImg);
     // console.log(itemImgs);
     axios
-      .patch("http://localhost:3001/admin/item-list", formData)
+      .patch("https://tennis365-api.herokuapp.com/admin/item-list", formData)
       .then((res) => {
         setProducts(res.data.allItems);
         alert(res.data.success);
@@ -63,7 +63,9 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
         imgUrl: targetItem.imgUrl,
       });
     }
-    setPreviewImg(`http://localhost:3001/admin/${targetItem.imgUrl}`);
+    setPreviewImg(
+      `https://tennis365-api.herokuapp.com/admin/${targetItem.imgUrl}`
+    );
   }, [targetItem]);
 
   const inputChange = (e) => {
@@ -262,7 +264,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
           filterItemList={filterItemList}
           targetId={itemId}
           text={"상품 삭제"}
-          url={"http://localhost:3001/admin/item-list"}
+          url={"https://tennis365-api.herokuapp.com/admin/item-list"}
         />
         <button>등록</button>
       </div>

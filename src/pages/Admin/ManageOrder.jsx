@@ -90,7 +90,7 @@ const ManageOrder = () => {
     } else {
       await axios
         .patch(
-          "http://localhost:3001/admin/manage-order",
+          "https://tennis365-api.herokuapp.com/admin/manage-order",
           instance.getCheckedRows()
         )
         .then((res) => {

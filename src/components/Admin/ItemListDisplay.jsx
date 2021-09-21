@@ -49,7 +49,7 @@ const ItemListDisplay = () => {
                   <td className="item-id">{item.id}</td>
                   <td className="item-img">
                     <img
-                      src={`http://localhost:3001/admin/${item.imgUrl}`}
+                      src={`https://tennis365-api.herokuapp.com/admin/${item.imgUrl}`}
                       alt=""
                     />
                   </td>

@@ -14,7 +14,7 @@ const DisplayProductDetails = ({ product, addCart, productImgs }) => {
           return (
             <div key={img.id}>
               <img
-                src={`http://localhost:3001/admin/${img.img_url}`}
+                src={`https://tennis365-api.herokuapp.com/admin/${img.img_url}`}
                 alt={img.img_url}
               />
             </div>

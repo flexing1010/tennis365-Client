@@ -69,7 +69,10 @@ const DisplayCart = ({ cartItems, handleQuantity, handleDelete }) => {
                 <div
                   className="delete-btn"
                   onClick={() =>
-                    handleDelete("http://localhost:3001/cart/update", item)
+                    handleDelete(
+                      "https://tennis365-api.herokuapp.com/cart/update",
+                      item
+                    )
                   }
                 >
                   삭제하기

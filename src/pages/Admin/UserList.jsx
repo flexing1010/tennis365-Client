@@ -49,7 +49,7 @@ const UserList = () => {
     } else {
       await axios
         .patch(
-          "http://localhost:3001/admin/user-list",
+          "https://tennis365-api.herokuapp.com/admin/user-list",
           instance.getCheckedRows()
         )
         .then((res) => {

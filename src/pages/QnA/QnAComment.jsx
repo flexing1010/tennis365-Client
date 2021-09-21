@@ -45,11 +45,14 @@ const QnAComment = () => {
     closeModal();
 
     axios
-      .post(`http://localhost:3001/board/view-post/${id}/comment`, {
-        commentBody,
-        createdAt,
-        username: authState.username,
-      })
+      .post(
+        `https://tennis365-api.herokuapp.com/board/view-post/${id}/comment`,
+        {
+          commentBody,
+          createdAt,
+          username: authState.username,
+        }
+      )
       .then((response) => {
         // setTemporaryId(response.data);
         const newReview = {
@@ -92,7 +95,7 @@ const QnAComment = () => {
                 targetId={comment.id}
                 owner={comment.username}
                 text={"리뷰 삭제"}
-                url={`http://localhost:3001/board/view-post/${id}/comment`}
+                url={`https://tennis365-api.herokuapp.com/board/view-post/${id}/comment`}
               />
               <ul className="review-box__info">
                 <li>

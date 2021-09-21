@@ -44,8 +44,8 @@ function App() {
     isAdmin: 0,
     status: false,
   });
-
-  const getAuth = axios.get("http://localhost:3001/auth", {
+  // http://localhost:3001/
+  const getAuth = axios.get("https://tennis365-api.herokuapp.com/auth", {
     headers: {
       accessToken: localStorage.getItem("accessToken"),
     },
@@ -54,22 +54,24 @@ function App() {
   //  let history = useHistory();
 
   useEffect(() => {
-    axios.all([getAuth, axios.get("http://localhost:3001/")]).then((res) => {
-      if (res[0].data.errorMessage) {
-        setAuthState({ ...authState, status: false });
-      } else {
-        setAuthState({
-          username: res[0].data.username,
-          id: res[0].data.id,
-          isAdmin: res[0].data.isAdmin,
-          status: true,
-          // cartId: res[0].data.cartId,
-        });
-        // console.log(authState.isAdmin);
-      }
+    axios
+      .all([getAuth, axios.get("https://tennis365-api.herokuapp.com/")])
+      .then((res) => {
+        if (res[0].data.errorMessage) {
+          setAuthState({ ...authState, status: false });
+        } else {
+          setAuthState({
+            username: res[0].data.username,
+            id: res[0].data.id,
+            isAdmin: res[0].data.isAdmin,
+            status: true,
+            // cartId: res[0].data.cartId,
+          });
+          // console.log(authState.isAdmin);
+        }
 
-      setProducts(res[1].data);
-    });
+        setProducts(res[1].data);
+      });
     // eslint-disable-next-line
   }, []);
 

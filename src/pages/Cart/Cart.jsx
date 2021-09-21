@@ -58,7 +58,9 @@ const Cart = () => {
       history.push("/login");
     } else {
       axios
-        .get("http://localhost:3001/cart", { params: { id: authState.id } })
+        .get("https://tennis365-api.herokuapp.com/cart", {
+          params: { id: authState.id },
+        })
         .then((res) => {
           if (res.data.errorMessage) {
             setErrorMessage(res.data.errorMessage);
@@ -79,7 +81,7 @@ const Cart = () => {
 
   const toOrderPage = () => {
     axios
-      .post("http://localhost:3001/order", {
+      .post("https://tennis365-api.herokuapp.com/order", {
         user_id: authState.id,
         grandTotal,
         orderItems: cartItems,

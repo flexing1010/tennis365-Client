@@ -49,7 +49,7 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
       if (response.success === true) {
         const query = queryString.stringify(response);
 
-        axios.post("http://localhost:3001/order/result", {
+        axios.post("https://tennis365-api.herokuapp.com/order/result", {
           user_id: transactionInfo.user_id,
           order_id: transactionInfo.order_id,
           buyer_name: response.buyer_name,
