@@ -55,6 +55,17 @@ const ViewPost = () => {
     }
   }, [response]);
 
+  useEffect(() => {
+    if (response) {
+      setBody(
+        EditorState.createWithContent(
+          convertFromRaw(JSON.parse(response[0].body))
+        )
+      );
+      setPost(response[0]);
+    }
+  }, [window.reactTimestamp]);
+
   return (
     <div className="view-post">
       <div className="post">
