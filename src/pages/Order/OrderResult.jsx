@@ -8,7 +8,7 @@ import Button from "../../components/Button/Button";
 const OrderResult = () => {
   let history = useHistory();
   let location = useLocation();
-  const { search, state } = location;
+  const { search } = location;
   const query = queryString.parse(search);
   const { merchant_uid, paid_amount, name } = query;
 

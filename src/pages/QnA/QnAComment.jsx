@@ -74,7 +74,6 @@ const QnAComment = () => {
   useEffect(() => {
     if (response) {
       setComments(response);
-      console.log(comments);
     }
   }, [response]);
 

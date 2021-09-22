@@ -6,7 +6,7 @@ import axios from "axios";
 
 import Home from "./pages/Home/Home";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
-import Navbar from "./components/Navbar/Navbar";
+// import Navbar from "./components/Navbar/Navbar";
 import Search from "./pages/Search/Search";
 import Footer from "./components/Footer/Footer.jsx";
 import Login from "./pages/Login/Login";

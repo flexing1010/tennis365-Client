@@ -102,7 +102,6 @@ const ManageOrder = () => {
   };
 
   useEffect(() => {
-    console.log(allTransaction);
     if (response) {
       let items = response.transactionItem;
       setAlltransaction(response.transaction);

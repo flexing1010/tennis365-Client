@@ -16,7 +16,7 @@ const ByBrand = () => {
 
   useEffect(() => {
     setItemByBrand(products.filter((brandItem) => brandItem.brand === id));
-  }, [products, match.params]);
+  }, [products, match.params, id]);
   return (
     <section style={{ width: "100%", margin: "0 auto" }}>
       <DisplayItem items={itemByBrand} />

@@ -86,6 +86,7 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
     });
     setFulladdress(user.address1);
     // console.log(user, orderItems, orderInfo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (

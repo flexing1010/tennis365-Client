@@ -1,6 +1,6 @@
 import "./Navbar.scss";
 import { useContext, useEffect } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext, SidebarContext } from "../../Context";
 import SearchBar from "../SearchBar/SearchBar";
@@ -12,7 +12,7 @@ import {
 
 const Navbar = () => {
   const { isShowing, setIsShowing } = useContext(SidebarContext);
-  const location = useLocation();
+  // const location = useLocation();
   let history = useHistory();
   const { authState } = useContext(AuthContext);
 

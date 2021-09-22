@@ -1,6 +1,6 @@
 import "./EditPost.scss";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useAxios } from "../../hooks/useAxios";
 import { Editor } from "@nick4fake/react-draft-wysiwyg";
 import "@nick4fake/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -16,7 +16,7 @@ const EditPost = () => {
   const { authState } = useContext(AuthContext);
   const [content, setContent] = useState("");
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-
+  let history = useHistory();
   const { response } = useAxios({
     method: "get",
     url: `/board/view-post/${id}`,
@@ -36,6 +36,7 @@ const EditPost = () => {
         username: authState.username,
       }
     );
+    history.goBack();
   };
 
   useEffect(() => {

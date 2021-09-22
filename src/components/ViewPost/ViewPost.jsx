@@ -52,7 +52,6 @@ const ViewPost = () => {
         )
       );
       setPost(response[0]);
-      console.log(post);
     }
   }, [response]);
 

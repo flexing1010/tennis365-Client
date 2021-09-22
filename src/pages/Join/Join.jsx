@@ -29,7 +29,7 @@ const Join = () => {
 
   const { values, handleInputChange } = useInputChanges(initValues);
 
-  const [fullAddress, setFulladdress, handleComplete] = usePostcode();
+  const [fullAddress, handleComplete] = usePostcode();
   // const [address2, setAddress2] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 

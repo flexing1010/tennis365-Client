@@ -7,6 +7,7 @@ import { AuthContext } from "../../Context";
 import { useHistory } from "react-router";
 
 const QnA = () => {
+  window.reactTimestamp = Date.now();
   const [qnaPost, setQna] = useState([]);
   const { authState } = useContext(AuthContext);
   let history = useHistory();
@@ -28,6 +29,11 @@ const QnA = () => {
   useEffect(() => {
     setQna(response);
   }, [response]);
+  useEffect(() => {
+    // console.log(window.reactTimestamp);
+    setQna(response);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.reactTimestamp]);
 
   return (
     <main className="qna">

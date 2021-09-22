@@ -44,6 +44,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
     if (itemId) {
       setTargetItem(products.find((item) => item.id === parseInt(itemId)));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemId]);
 
   useEffect(() => {

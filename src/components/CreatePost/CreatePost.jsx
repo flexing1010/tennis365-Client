@@ -27,13 +27,16 @@ const CreatePost = () => {
   const submitPost = (e) => {
     e.preventDefault();
     // console.log(content, postTitle, authState.username);
+    // axios.post("http://localhost:3001/board/create-post", {
     axios.post("https://tennis365-api.herokuapp.com/board/create-post", {
       content,
       postTitle,
       username: authState.username,
       board_category: authState.isAdmin ? boardCategory : 1,
     });
+
     history.goBack();
+    // history.push("/board/qna");
   };
 
   useEffect(() => {
@@ -43,7 +46,7 @@ const CreatePost = () => {
     // setContent(
     //   JSON.stringify(draftToHtml(convertToRaw(editorState.getCurrentContent())))
     // );
-    console.log(content, "aa");
+
     // console.log(content);
   }, [editorState]);
   return (

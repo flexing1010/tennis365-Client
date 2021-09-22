@@ -1,14 +1,10 @@
 import "./MessageBoard.scss";
 import Paginator from "react-hooks-paginator";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import { useAxios } from "../../hooks/useAxios";
-import Button from "../Button/Button";
-import { AuthContext } from "../../Context";
 
 const MessageBoard = ({ messageList, historyUrl }) => {
   const pageLimit = 5;
-  const { authState } = useContext(AuthContext);
   const [offset, setOffset] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);

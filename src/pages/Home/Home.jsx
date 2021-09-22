@@ -1,15 +1,15 @@
 import "./Home.scss";
-import { useContext } from "react";
+// import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
-import { ProductContext } from "../../Context";
-import DisplayItem from "../../components/DisplayItem/DisplayItem.jsx";
+// import { ProductContext } from "../../Context";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { useHistory } from "react-router";
 
 const Home = () => {
   let history = useHistory();
-  const { products } = useContext(ProductContext);
+  // const { products } = useContext(ProductContext);
   const isMobile = useMediaQuery({ query: "(max-width:650px)" });
 
   const handleBrandClick = (brandId) => {

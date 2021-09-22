@@ -1,7 +1,6 @@
 import "./DisplayCart.scss";
 
 import ProductImg from "../ProductImg/ProductImg";
-import { useEffect } from "react";
 
 const DisplayCart = ({ cartItems, handleQuantity, handleDelete }) => {
   const getBrandName = (BrnadNumber) => {
