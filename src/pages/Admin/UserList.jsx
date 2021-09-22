@@ -4,6 +4,7 @@ import Grid from "@toast-ui/react-grid";
 import { useAxios } from "../../hooks/useAxios.js";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import Button from "../../components/Button/Button";
 
 const UserList = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -90,7 +91,8 @@ const UserList = () => {
           }}
         />
       </div>
-      <button onClick={handleClick}>테스트</button>
+      {/* <button onClick={handleClick}>테스트</button> */}
+      <Button text={"홈으로 돌아가기"} handleBtnClick={handleClick} />
     </section>
   );
 };

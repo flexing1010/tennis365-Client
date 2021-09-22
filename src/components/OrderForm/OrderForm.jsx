@@ -45,7 +45,6 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
     IMP.init("imp83950599");
 
     IMP.request_pay(data, (response) => {
-      console.log(response);
       if (response.success === true) {
         const query = queryString.stringify(response);
 
@@ -86,7 +85,7 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
       address2: user.address2,
     });
     setFulladdress(user.address1);
-    console.log(user, orderItems, orderInfo);
+    // console.log(user, orderItems, orderInfo);
   }, [user]);
 
   return (

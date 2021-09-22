@@ -14,11 +14,9 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
 
   const handleCoverImgEdit = (e) => {
     setCoverImg(e.target.files);
-    console.log(coverImg);
   };
   const handleItemImgsEdit = (e) => {
     setItemImgs(e.target.files);
-    console.log(itemImgs);
   };
 
   const requestUpdate = (e) => {
@@ -37,7 +35,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
       .patch("https://tennis365-api.herokuapp.com/admin/item-list", formData)
       .then((res) => {
         setProducts(res.data.allItems);
-        console.log(res.data);
+
         alert(res.data.success);
       });
   };

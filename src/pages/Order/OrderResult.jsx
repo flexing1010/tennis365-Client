@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import queryString from "query-string";
 // import { useEffect } from "react";
 import "./OrderResult.scss";
@@ -6,6 +6,7 @@ import Button from "../../components/Button/Button";
 // import axios from "axios";
 
 const OrderResult = () => {
+  let history = useHistory();
   let location = useLocation();
   const { search, state } = location;
   const query = queryString.parse(search);
@@ -19,6 +20,10 @@ const OrderResult = () => {
   };
 
   const paymentMethod = getPaymentMethod();
+
+  const handleBtnClick = () => {
+    history.push("/");
+  };
 
   // useEffect(() => {});
   return (
@@ -40,7 +45,7 @@ const OrderResult = () => {
         <span className="row__title">상품 이름</span>
         <div className="row__text">{name}</div>
       </div>
-      <Button text={"홈으로 돌아가기"} />
+      <Button text={"홈으로 돌아가기"} handleBtnClick={handleBtnClick} />
     </section>
   );
 };

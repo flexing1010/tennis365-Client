@@ -21,7 +21,7 @@ const MessageBoard = ({ messageList, historyUrl }) => {
     }
   }, [messageList]);
   useEffect(() => {
-    console.log(messageList);
+    // console.log(messageList);
     setCurrentData(data.slice(offset, offset + pageLimit));
   }, [offset, data]);
 

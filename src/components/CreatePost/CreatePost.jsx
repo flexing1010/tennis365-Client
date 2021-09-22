@@ -26,7 +26,7 @@ const CreatePost = () => {
 
   const submitPost = (e) => {
     e.preventDefault();
-    console.log(content, postTitle, authState.username);
+    // console.log(content, postTitle, authState.username);
     axios.post("https://tennis365-api.herokuapp.com/board/create-post", {
       content,
       postTitle,

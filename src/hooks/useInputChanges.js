@@ -9,7 +9,7 @@ const useInputChanges = (initValues) => {
       ...values,
       [name]: value,
     });
-    console.log(values);
+    // console.log(values);
   };
 
   return { values, handleInputChange, setValues };
