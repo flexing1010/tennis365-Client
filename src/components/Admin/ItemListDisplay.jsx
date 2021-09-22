@@ -18,7 +18,6 @@ const ItemListDisplay = () => {
 
   const filterItemList = (targetId) => {
     setItemList(itemList.filter((item) => item.id !== parseInt(targetId)));
-    console.log(itemList, "filter");
   };
 
   useEffect(() => {
@@ -49,8 +48,9 @@ const ItemListDisplay = () => {
                   <td className="item-id">{item.id}</td>
                   <td className="item-img">
                     <img
-                      src={`https://tennis365-api.herokuapp.com/admin/${item.imgUrl}`}
-                      alt=""
+                      // src={`https://tennis365-api.herokuapp.com/admin/${item.imgUrl}`}
+                      src={item.imgUrl}
+                      alt={item.product_name}
                     />
                   </td>
                   <td className="item-name">{item.product_name}</td>
