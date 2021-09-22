@@ -46,6 +46,7 @@ const ProductDetails = () => {
       console.log(product);
       setProduct(response.product[0]);
       setProductImgs(response.productImgs);
+      console.log("product img", productImgs);
     }
   }, [product, response]);
 
