@@ -36,7 +36,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
       .patch("https://tennis365-api.herokuapp.com/admin/item-list", formData)
       .then((res) => {
         setProducts(res.data.allItems);
-        console.log(res.data.editImgs);
+        console.log(res.data);
         alert(res.data.success);
       });
   };
