@@ -35,7 +35,7 @@ const CreatePost = () => {
       board_category: authState.isAdmin ? boardCategory : 1,
     });
 
-    history.goBack();
+    // history.goBack();
     // history.push("/board/qna");
   };
 
