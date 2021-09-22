@@ -33,6 +33,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
     // console.log(coverImg);
     // console.log(itemImgs);
     axios
+      // .patch("http://localhost:3001/admin/item-list", formData)
       .patch("https://tennis365-api.herokuapp.com/admin/item-list", formData)
       .then((res) => {
         setProducts(res.data.allItems);
