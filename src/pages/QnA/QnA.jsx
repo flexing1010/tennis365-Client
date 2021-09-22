@@ -30,7 +30,7 @@ const QnA = () => {
     setQna(response);
   }, [response]);
   useEffect(() => {
-    // console.log(window.reactTimestamp);
+    console.log(window.reactTimestamp);
     setQna(response);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.reactTimestamp]);
