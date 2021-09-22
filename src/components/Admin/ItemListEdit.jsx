@@ -64,7 +64,8 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
       });
     }
     setPreviewImg(
-      `https://tennis365-api.herokuapp.com/admin/${targetItem.imgUrl}`
+      targetItem.imgUrl
+      // `https://tennis365-api.herokuapp.com/admin/${targetItem.imgUrl}`
     );
   }, [targetItem]);
 

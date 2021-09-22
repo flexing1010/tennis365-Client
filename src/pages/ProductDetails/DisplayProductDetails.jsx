@@ -13,6 +13,7 @@ const DisplayProductDetails = ({ product, addCart, productImgs }) => {
         {productImgs.map((img) => {
           return (
             <div key={img.id}>
+              {/* <img src={img.img_url} alt={img.img_url} /> */}
               <img src={img.img_url} alt={img.img_url} />
             </div>
           );
