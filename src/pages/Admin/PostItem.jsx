@@ -58,7 +58,7 @@ const PostItem = () => {
   };
 
   useEffect(() => {
-    console.log(values);
+    // console.log(values);
   }, [values]);
   return (
     <section className="post-item" style={{ margin: "0 auto" }}>

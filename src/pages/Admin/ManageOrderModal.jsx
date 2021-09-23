@@ -18,7 +18,6 @@ const ManageOrderModal = ({ targetId, allTransaction, transactionItem }) => {
   };
 
   useEffect(() => {
-    console.log(targetTransaction);
     setTargetTransaction(
       allTransaction.find((item) => item.id === parseInt(targetId))
     );

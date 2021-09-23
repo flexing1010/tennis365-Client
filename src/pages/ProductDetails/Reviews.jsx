@@ -30,7 +30,6 @@ const Reviews = () => {
 
   const handleReview = (e) => {
     setReviewBody(e.target.value);
-    console.log(reviewBody);
   };
 
   const postReview = (e) => {
@@ -60,7 +59,6 @@ const Reviews = () => {
           id: response.data,
         };
         setReviews([newReview, ...reviews]);
-        console.log(newReview, "newreview");
       });
   };
 

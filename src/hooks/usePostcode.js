@@ -21,7 +21,6 @@ const usePostcode = () => {
       fullAddress = data.jibunAddress;
     }
     setFullAddress(fullAddress);
-    console.log(fullAddress);
   };
   return [fullAddress, setFullAddress, handleComplete];
 };

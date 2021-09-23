@@ -29,7 +29,6 @@ const Cart = () => {
           },
         })
         .then((res) => {
-          console.log(res);
           setCartItems(cartItems.filter((item) => item.id !== exist.id));
           alert(res.data);
         });
@@ -39,7 +38,6 @@ const Cart = () => {
   const handleQuantity = (product, value) => {
     const exist = cartItems.find((item) => item.id === product.id);
     if (exist) {
-      console.log("Aa");
       setCartItems(
         cartItems.map((item) =>
           item.id === product.id ? { ...exist, quantity: value } : item
@@ -48,7 +46,6 @@ const Cart = () => {
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
-    console.log(exist, cartItems);
   };
 
   // authState.status === false
@@ -66,7 +63,6 @@ const Cart = () => {
             setErrorMessage(res.data.errorMessage);
           }
           setCartItems(res.data);
-          console.log(cartItems);
         });
     }
     // eslint-disable-next-line

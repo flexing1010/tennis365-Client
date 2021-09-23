@@ -19,7 +19,6 @@ const MyPage = () => {
   });
 
   useEffect(() => {
-    console.log(response);
     if (response) {
       setOrders(response.orders);
       setOrderItems(response.orderItems);
@@ -30,7 +29,6 @@ const MyPage = () => {
   useEffect(() => {
     if (authState.id !== 0) {
       if (parseInt(id) !== authState.id) {
-        console.log(id, authState.id);
         setAuthorized(false);
       }
     }

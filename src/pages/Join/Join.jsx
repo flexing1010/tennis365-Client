@@ -48,7 +48,6 @@ const Join = () => {
         address2: values.address2,
       })
       .then((response) => {
-        console.log(fullAddress);
         alert("가입이 완료 되었습니다!");
         history.push("/login");
       })
