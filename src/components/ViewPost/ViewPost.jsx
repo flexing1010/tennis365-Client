@@ -77,7 +77,7 @@ const ViewPost = () => {
                 작성자
                 <span className="post-owner"> {post.username}</span>
               </div>
-              <span className="info-head">{` 작성일 ${new Date().getFullYear()}`}</span>
+              <span className="info-head">{` 작성일 ${post.createdAt}`}</span>
             </div>
           </div>
           <div className="view-post__header--col2">

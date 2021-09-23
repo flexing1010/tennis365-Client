@@ -36,7 +36,7 @@ const MessageBoard = ({ messageList, historyUrl }) => {
               작성자
               <span className="post-owner"> {data.username}</span>
             </div>
-            <span className="info-head">{` 작성일 ${new Date().getFullYear()}`}</span>
+            <span className="info-head">{` 작성일 ${data.createdAt}`}</span>
           </div>
         </li>
       ))}

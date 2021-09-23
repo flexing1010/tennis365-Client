@@ -27,15 +27,21 @@ const CreatePost = () => {
   const submitPost = (e) => {
     e.preventDefault();
     // console.log(content, postTitle, authState.username);
-    // axios.post("http://localhost:3001/board/create-post", {
-    axios.post("https://tennis365-api.herokuapp.com/board/create-post", {
-      content,
-      postTitle,
-      username: authState.username,
-      board_category: authState.isAdmin ? boardCategory : 1,
-    });
+    axios
+      .post("http://localhost:3001/board/create-post", {
+        // axios.post("https://tennis365-api.herokuapp.com/board/create-post", {
+        content,
+        postTitle,
+        username: authState.username,
+        board_category: authState.isAdmin ? boardCategory : 1,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          alert("글이 등록되었습니다");
+        }
+      });
 
-    // history.goBack();
+    history.goBack();
     // history.push("/board/qna");
   };
 
