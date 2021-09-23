@@ -28,7 +28,7 @@ const Header = () => {
               <span>Tennis 365</span>
             </Link>
           </li>
-          {authState.isAdmin ? (
+          {/* {authState.isAdmin ? (
             <li className="links-container admin-menu">
               <div>
                 <Link to="/admin/post-item">
@@ -51,7 +51,7 @@ const Header = () => {
                 </Link>
               </div>
             </li>
-          ) : null}
+          ) : null} */}
           {!authState.status ? (
             <li className="links-container">
               <div>
@@ -81,6 +81,30 @@ const Header = () => {
           )}
         </ul>
       </div>
+      {authState.isAdmin ? (
+        <div className="admin-menu">
+          <div>
+            <Link to="/admin/post-item">
+              <span className="header-link">상품등록</span>
+            </Link>
+          </div>
+          <div>
+            <Link to="/admin/item-list">
+              <span className="header-link">상품목록</span>
+            </Link>
+          </div>
+          <div>
+            <Link to="/admin/user-list">
+              <span className="header-link">유저목록</span>
+            </Link>
+          </div>
+          <div>
+            <Link to="/admin/manage-order">
+              <span className="header-link">주문관리</span>
+            </Link>
+          </div>
+        </div>
+      ) : null}
       <Navbar />
     </header>
   );
