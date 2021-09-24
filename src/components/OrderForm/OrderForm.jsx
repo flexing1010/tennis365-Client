@@ -86,6 +86,7 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
   };
 
   useEffect(() => {
+    console.log(user);
     setValues({
       name: user.name,
       email: user.email,
