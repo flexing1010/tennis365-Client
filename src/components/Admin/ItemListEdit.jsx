@@ -255,8 +255,8 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
         <textarea
           name="description"
           id="설명"
-          cols="50"
-          rows="10"
+          // cols="20"
+          rows="7"
           value={values.description || ""}
           onChange={(e) => inputChange(e)}
           required

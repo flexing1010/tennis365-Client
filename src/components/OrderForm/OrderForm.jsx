@@ -40,6 +40,7 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
         orderItems.length === 1
           ? orderItems[0].product_name
           : `${orderItems[0].product_name} 외 ${orderItems.length - 1}`,
+      m_redirect_url: "https://sleepy-austin-0254fa.netlify.app/order/payment",
     };
     const { IMP } = window;
     IMP.init("imp83950599");

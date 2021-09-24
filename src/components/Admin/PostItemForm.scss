@@ -1,5 +1,8 @@
+@import "../../variables.scss";
+
 .post-item__form {
-  width: 400px;
+  // width: 100%;
+  width: 450px;
   margin: 0 auto;
   .item__specs {
     display: flex;
@@ -19,12 +22,21 @@
   }
   textarea {
     margin: 1rem 0;
+    width: 90%;
   }
   button {
     font-size: 1.5rem;
     margin-top: 1rem;
+    width: 90%;
   }
   .cover-img-input {
     margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .post-item__form {
+    width: 300px;
+    // margin: 0 auto;
   }
 }
