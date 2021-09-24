@@ -110,18 +110,7 @@ function App() {
                 <Route exact path="/board/qna" component={QnA} />
 
                 <Route exact path="/board/view-post/:id" component={ViewPost} />
-                <OrderDataContext.Provider value={{ orderData, setOrderData }}>
-                  <PrivateRoute
-                    exact
-                    path="/order/:id([0-9]+)"
-                    component={Order}
-                  />
-                  <PrivateRoute
-                    exact
-                    path="/order/payment/mobile"
-                    component={MobilePayment}
-                  />
-                </OrderDataContext.Provider>
+
                 <PrivateRoute
                   exact
                   path="/order/payment"
@@ -154,6 +143,18 @@ function App() {
                   path="/admin/manage-order"
                   component={ManageOrder}
                 />
+                <OrderDataContext.Provider value={{ orderData, setOrderData }}>
+                  <PrivateRoute
+                    exact
+                    path="/order/:id([0-9]+)"
+                    component={Order}
+                  />
+                  <PrivateRoute
+                    exact
+                    path="/order/payment/mobile"
+                    component={MobilePayment}
+                  />
+                </OrderDataContext.Provider>
               </Switch>
             </div>
             <Footer />
