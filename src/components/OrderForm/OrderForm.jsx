@@ -49,19 +49,27 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
       if (response.success === true) {
         const query = queryString.stringify(response);
 
-        axios.post("https://tennis365-api.herokuapp.com/order/result", {
-          user_id: transactionInfo.user_id,
-          order_id: transactionInfo.order_id,
-          buyer_name: response.buyer_name,
-          name: response.name,
-          buyer_addr: response.buyer_addr,
-          buyer_tel: response.buyer_tel,
-          pay_method: response.pay_method,
-          merchant_uid: response.merchant_uid,
-          status: 0,
-          orderItems,
-          amount: orderInfo.grandTotal,
-        });
+        axios.post(
+          "https://tennis365-api.herokuapp.com/order/result",
+          {
+            user_id: transactionInfo.user_id,
+            order_id: transactionInfo.order_id,
+            buyer_name: response.buyer_name,
+            name: response.name,
+            buyer_addr: response.buyer_addr,
+            buyer_tel: response.buyer_tel,
+            pay_method: response.pay_method,
+            merchant_uid: response.merchant_uid,
+            status: 0,
+            orderItems,
+            amount: orderInfo.grandTotal,
+          },
+          function (rsp) {
+            if (rsp.success) {
+              console.log(rsp);
+            }
+          }
+        );
 
         history.push({
           pathname: "/order/payment",
