@@ -16,7 +16,7 @@ const MobilePayment = () => {
   const { response } = useAxios({
     method: "get",
     url: `/order/payment/${id}/mobile`,
-    // params: { id },
+    params: { merchant_uid },
   });
 
   useEffect(() => {
