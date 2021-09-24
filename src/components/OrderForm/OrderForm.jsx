@@ -3,7 +3,7 @@ import AddressInput from "../AdressInput/AdressInput";
 import Input from "../Input/Input";
 import "./OrderForm.scss";
 import useInputChanges from "../../hooks/useInputChanges";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import usePostcode from "../../hooks/usePostcode";
 import InfoBox from "../InfoBox/InfoBox";
 import Button from "../Button/Button";
@@ -17,10 +17,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { OrderDataContext } from "../../Context";
 
 const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
   const [fullAddress, setFulladdress, handleComplete] = usePostcode();
   const { values, handleInputChange, setValues } = useInputChanges({});
+  const { orderData, setOrderData } = useContext(OrderDataContext);
   let history = useHistory();
 
   const submitOrder = (e) => {
@@ -40,8 +42,18 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
         orderItems.length === 1
           ? orderItems[0].product_name
           : `${orderItems[0].product_name} 외 ${orderItems.length - 1}`,
-      m_redirect_url: "https://sleepy-austin-0254fa.netlify.app/order/payment",
+      m_redirect_url:
+        "https://sleepy-austin-0254fa.netlify.app/order/payment/mobile",
     };
+
+    setOrderData({
+      user_id: transactionInfo.user_id,
+      order_id: transactionInfo.order_id,
+      status: 0,
+      orderItems,
+      amount: orderInfo.grandTotal,
+    });
+
     const { IMP } = window;
     IMP.init("imp83950599");
 
@@ -50,24 +62,37 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
         const query = queryString.stringify(response);
 
         axios
-          .post("https://tennis365-api.herokuapp.com/order/result", {
+          .post("http://localhost:3001/order/result", {
+            // .post("https://tennis365-api.herokuapp.com/order/result", {
             user_id: transactionInfo.user_id,
             order_id: transactionInfo.order_id,
-            buyer_name: response.buyer_name,
-            name: response.name,
-            buyer_addr: response.buyer_addr,
-            buyer_tel: response.buyer_tel,
-            pay_method: response.pay_method,
-            merchant_uid: response.merchant_uid,
+            // buyer_name: data.buyer_name,
+            // name: data.name,
+            // buyer_addr: data.buyer_addr,
+            // buyer_tel: data.buyer_tel,
+            // pay_method: data.pay_method,
+            merchant_uid: data.merchant_uid,
+            imp_uid: response.imp_uid,
             status: 0,
             orderItems,
             amount: orderInfo.grandTotal,
+            // user_id: transactionInfo.user_id,
+            // order_id: transactionInfo.order_id,
+            // buyer_name: response.buyer_name,
+            // name: response.name,
+            // buyer_addr: response.buyer_addr,
+            // buyer_tel: response.buyer_tel,
+            // pay_method: response.pay_method,
+            // merchant_uid: response.merchant_uid,
+            // status: 0,
+            // orderItems,
+            // amount: orderInfo.grandTotal,
           })
           .then(
             history.push({
               pathname: "/order/payment",
               search: `?${query}`,
-              state: { response },
+              // state: { response },
             })
           );
 

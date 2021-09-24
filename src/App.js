@@ -1,7 +1,12 @@
 import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { AuthContext, ProductContext, SidebarContext } from "./Context";
+import {
+  AuthContext,
+  OrderDataContext,
+  ProductContext,
+  SidebarContext,
+} from "./Context";
 import axios from "axios";
 
 import Home from "./pages/Home/Home";
@@ -31,12 +36,14 @@ import QnA from "./pages/QnA/QnA";
 import CreatePost from "./components/CreatePost/CreatePost";
 import EditPost from "./components/EditPost/EditPost";
 import AllProducts from "./pages/AllProducts/AllProducts";
+import MobilePayment from "./components/MobilePayment/MobilePayment";
 // import { useHistory } from "react-router-dom";
 
 function App() {
   // const cancelToken = axios.CancelToken
   // const source = cancelToken.source
   const [products, setProducts] = useState([]);
+  const [orderData, setOrderData] = useState({});
   const [isShowing, setIsShowing] = useState(false);
   const [authState, setAuthState] = useState({
     username: "",
@@ -103,12 +110,18 @@ function App() {
                 <Route exact path="/board/qna" component={QnA} />
 
                 <Route exact path="/board/view-post/:id" component={ViewPost} />
-
-                <PrivateRoute
-                  exact
-                  path="/order/:id([0-9]+)"
-                  component={Order}
-                />
+                <OrderDataContext.Provider value={{ orderData, setOrderData }}>
+                  <PrivateRoute
+                    exact
+                    path="/order/:id([0-9]+)"
+                    component={Order}
+                  />
+                  <PrivateRoute
+                    exact
+                    path="/order/payment/mobile"
+                    component={MobilePayment}
+                  />
+                </OrderDataContext.Provider>
                 <PrivateRoute
                   exact
                   path="/order/payment"
