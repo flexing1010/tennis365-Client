@@ -1,31 +1,63 @@
-import { useHistory, useLocation } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import queryString from "query-string";
-import { OrderDataContext } from "../../Context";
-import { useContext, useEffect } from "react";
+
+import { useEffect } from "react";
+import { useAxios } from "../../hooks/useAxios";
+import axios from "axios";
 
 const MobilePayment = () => {
-  const { orderData, setOrderData } = useContext(OrderDataContext);
   let history = useHistory();
+  let { id } = useParams();
   let location = useLocation();
   const { search } = location;
   const query = queryString.parse(search);
-  const { merchant_uid } = query;
+  const { merchant_uid, imp_uid } = query;
+
+  const { response } = useAxios({
+    method: "get",
+    url: `/order/payment/${id}/mobile`,
+    // params: { id },
+  });
 
   useEffect(() => {
-    console.log(orderData);
-  }, [orderData]);
+    if (response) {
+      const orderInfo = response.orderInfo[0];
+      const orderItems = response.orderItems;
+
+      orderItems.forEach((item) => {
+        item.stock = item.stock - item.quantity;
+      });
+
+      axios
+        .post("https://tennis365-api.herokuapp.com/order/result", {
+          user_id: orderInfo.user_id,
+          order_id: id,
+          merchant_uid,
+          imp_uid,
+          status: 0,
+          amount: orderInfo.grandTotal,
+          orderItems,
+        })
+        .then(
+          history.push({
+            pathname: "/order/payment",
+            // search: `?${query}`,
+            // state: { response },
+          })
+        );
+    }
+  }, [response]);
 
   return (
     <div>
-      <h1>{merchant_uid}</h1>
-      {orderData && (
+      <h1>결제 확인중입니다</h1>
+      {/* {orderData !== undefined && (
         <>
-          ( <h1>{orderData.user_id}</h1>
+          <h1>{orderData.user_id}</h1>
           <h1>{orderData.order_id}</h1>
-          <h1>{orderData.status}</h1>}<h1>{orderData.orderItems[0]}</h1>
-          <h1>{orderData.amount}</h1>)<h1>{`${merchant_uid}00`}</h1>
+
         </>
-      )}
+      )} */}
     </div>
   );
 };

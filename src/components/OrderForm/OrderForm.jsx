@@ -3,7 +3,7 @@ import AddressInput from "../AdressInput/AdressInput";
 import Input from "../Input/Input";
 import "./OrderForm.scss";
 import useInputChanges from "../../hooks/useInputChanges";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import usePostcode from "../../hooks/usePostcode";
 import InfoBox from "../InfoBox/InfoBox";
 import Button from "../Button/Button";
@@ -17,12 +17,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { OrderDataContext } from "../../Context";
 
 const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
   const [fullAddress, setFulladdress, handleComplete] = usePostcode();
   const { values, handleInputChange, setValues } = useInputChanges({});
-  const { orderData, setOrderData } = useContext(OrderDataContext);
+
   let history = useHistory();
 
   const submitOrder = (e) => {
@@ -42,17 +41,16 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
         orderItems.length === 1
           ? orderItems[0].product_name
           : `${orderItems[0].product_name} 외 ${orderItems.length - 1}`,
-      m_redirect_url:
-        "https://sleepy-austin-0254fa.netlify.app/order/payment/mobile",
+      m_redirect_url: `https://sleepy-austin-0254fa.netlify.app/order/payment/${transactionInfo.order_id}/mobile`,
     };
 
-    setOrderData({
-      user_id: transactionInfo.user_id,
-      order_id: transactionInfo.order_id,
-      status: 0,
-      orderItems,
-      amount: orderInfo.grandTotal,
-    });
+    // setOrderData({
+    //   user_id: transactionInfo.user_id,
+    //   order_id: transactionInfo.order_id,
+    //   status: 0,
+    //   orderItems,
+    //   amount: orderInfo.grandTotal,
+    // });
 
     const { IMP } = window;
     IMP.init("imp83950599");
@@ -62,8 +60,8 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
         const query = queryString.stringify(response);
 
         axios
-          .post("http://localhost:3001/order/result", {
-            // .post("https://tennis365-api.herokuapp.com/order/result", {
+          // .post("http://localhost:3001/order/result", {
+          .post("https://tennis365-api.herokuapp.com/order/result", {
             user_id: transactionInfo.user_id,
             order_id: transactionInfo.order_id,
             // buyer_name: data.buyer_name,
@@ -109,7 +107,6 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
   };
 
   useEffect(() => {
-    console.log(user);
     setValues({
       name: user.name,
       email: user.email,

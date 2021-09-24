@@ -143,18 +143,17 @@ function App() {
                   path="/admin/manage-order"
                   component={ManageOrder}
                 />
-                <OrderDataContext.Provider value={{ orderData, setOrderData }}>
-                  <PrivateRoute
-                    exact
-                    path="/order/:id([0-9]+)"
-                    component={Order}
-                  />
-                  <PrivateRoute
-                    exact
-                    path="/order/payment/mobile"
-                    component={MobilePayment}
-                  />
-                </OrderDataContext.Provider>
+
+                <PrivateRoute
+                  exact
+                  path="/order/:id([0-9]+)"
+                  component={Order}
+                />
+                <PrivateRoute
+                  exact
+                  path="/order/payment/:id([0-9]+)/mobile"
+                  component={MobilePayment}
+                />
               </Switch>
             </div>
             <Footer />
