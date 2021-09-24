@@ -1,5 +1,5 @@
-import { useLocation, useHistory } from "react-router-dom";
-import queryString from "query-string";
+import { useLocation, useHistory, useParams } from "react-router-dom";
+// import queryString from "query-string";
 // import { useEffect } from "react";
 import "./OrderResult.scss";
 import Button from "../../components/Button/Button";
@@ -9,16 +9,17 @@ import { useAxios } from "../../hooks/useAxios";
 
 const OrderResult = () => {
   let history = useHistory();
-  let location = useLocation();
+  // let location = useLocation();
+  let { id } = useParams();
   // const response = location.state.response;
   const [transaction, setTransaction] = useState({});
-  const { search } = location;
-  const query = queryString.parse(search);
-  const { merchant_uid, paid_amount, name } = query;
+  // const { search } = location;
+  // const query = queryString.parse(search);
+  // const { merchant_uid, paid_amount, name } = query;
 
   const { response } = useAxios({
     method: "get",
-    url: `/order/result`,
+    url: `/order/result/${id}`,
     // params: { id },
   });
 
@@ -39,9 +40,9 @@ const OrderResult = () => {
 
   useEffect(() => {
     if (response) {
-      setTransaction(response.transaction);
+      setTransaction(response.transaction[0]);
     }
-  }, [response]);
+  }, [response, id]);
   return (
     <section className="order-result">
       <p>결제가 완료되었습니다</p>
@@ -62,6 +63,7 @@ const OrderResult = () => {
         <span className="row__title">상품 이름</span>
         <div className="row__text">{transaction.name}</div>
       </div>
+
       <Button text={"홈으로 돌아가기"} handleBtnClick={handleBtnClick} />
     </section>
     // <section className="order-result">

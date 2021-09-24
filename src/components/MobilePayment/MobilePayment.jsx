@@ -40,7 +40,7 @@ const MobilePayment = () => {
         })
         .then(
           history.push({
-            pathname: "/order/payment",
+            pathname: `/order/payment/${merchant_uid}`,
             // search: `?${query}`,
             // state: { response },
           })

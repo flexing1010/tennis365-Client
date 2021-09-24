@@ -113,7 +113,7 @@ function App() {
 
                 <PrivateRoute
                   exact
-                  path="/order/payment"
+                  path="/order/payment/:id"
                   component={OrderResult}
                 />
                 <PrivateRoute exact path="/user/:id" component={MyPage} />

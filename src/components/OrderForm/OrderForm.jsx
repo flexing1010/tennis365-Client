@@ -88,9 +88,10 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
           })
           .then(
             history.push({
-              pathname: "/order/payment",
-              search: `?${query}`,
-              // state: { response },
+              pathname: `/order/payment/${response.merchant_uid}`,
+              // search: `?${query}`,
+              // state: {merchant_uid:response.merchant_uid},
+              // params: { merchant_uid: response.merchant_uid },
             })
           );
 
