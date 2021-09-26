@@ -48,11 +48,12 @@ const OrderResult = () => {
 
   useEffect(() => {
     axios
-      .get(`https://tennis365-api.herokuapp.com/order/result/${id}`)
+      .get(`http://localhost:3001/order/result/${id}`)
+      // .get(`https://tennis365-api.herokuapp.com/order/result/${id}`)
       .then((res) => {
         if (res) {
-          setTransaction(res.transaction[0]);
           console.log(res, "tran", transaction);
+          setTransaction(res.data.transaction[0]);
         }
       });
     // getTransaction();
