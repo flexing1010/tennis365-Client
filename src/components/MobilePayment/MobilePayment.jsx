@@ -38,11 +38,13 @@ const MobilePayment = () => {
           amount: orderInfo.grandTotal,
           orderItems,
         })
-        .then(
-          history.push({
-            pathname: `/order/payment/${merchant_uid}`,
-          })
-        );
+        .then((res) => {
+          if (res.status === 200) {
+            history.push({
+              pathname: `/order/payment/${merchant_uid}`,
+            });
+          }
+        });
     }
   }, [response]);
 

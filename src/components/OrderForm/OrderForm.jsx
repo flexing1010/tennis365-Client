@@ -86,14 +86,13 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
             // orderItems,
             // amount: orderInfo.grandTotal,
           })
-          .then(
-            history.push({
-              pathname: `/order/payment/${response.merchant_uid}`,
-              // search: `?${query}`,
-              // state: {merchant_uid:response.merchant_uid},
-              // params: { merchant_uid: response.merchant_uid },
-            })
-          );
+          .then((res) => {
+            if (res.status === 200) {
+              history.push({
+                pathname: `/order/payment/${response.merchant_uid}`,
+              });
+            }
+          });
 
         // history.push({
         //   pathname: "/order/payment",

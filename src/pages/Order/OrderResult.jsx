@@ -10,6 +10,7 @@ import axios from "axios";
 
 const OrderResult = () => {
   let history = useHistory();
+  let location = useLocation();
   // let location = useLocation();
   let { id } = useParams();
   // const response = location.state.response;
@@ -48,14 +49,16 @@ const OrderResult = () => {
 
   useEffect(() => {
     axios
-      // .get(`http://localhost:3001/order/result/${id}`)
-      .get(`https://tennis365-api.herokuapp.com/order/result/${id}`)
+      .get(`http://localhost:3001/order/result/${id}`)
+      // .get(`https://tennis365-api.herokuapp.com/order/result/${id}`)
       .then((res) => {
-        if (res) {
+        if (res.status === 200) {
           console.log(res, "tran", transaction);
           setTransaction(res.data.transaction[0]);
+          // location.reload();
         }
       });
+
     // getTransaction();
 
     // if (response) {
@@ -63,6 +66,10 @@ const OrderResult = () => {
     //   console.log(response, "tran", transaction);
     // }
   }, [id]);
+
+  // useEffect(() => {
+  //   history.go(0);
+  // }, []);
   return (
     <section className="order-result">
       <p>결제가 완료되었습니다</p>
