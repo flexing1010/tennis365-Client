@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../../Context";
 import axios from "axios";
 import DeleteItem from "./DeleteItem";
+// import DeleteItem from "./DeleteItem";
 
 const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
   const { products, setProducts } = useContext(ProductContext);
@@ -266,6 +267,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
           filterItemList={filterItemList}
           targetId={itemId}
           text={"상품 삭제"}
+          // url={"http://localhost:3001/admin/item-list"}
           url={"https://tennis365-api.herokuapp.com/admin/item-list"}
         />
         <button>등록</button>

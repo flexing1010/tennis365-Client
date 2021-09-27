@@ -92,10 +92,10 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
 
         // });
       } else {
-        console.log(response);
+        // console.log(response);
       }
     });
-    console.log(data);
+    // console.log(data);
   };
 
   useEffect(() => {

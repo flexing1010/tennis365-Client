@@ -28,7 +28,8 @@ const ViewPost = () => {
     if (window.confirm("글을 삭제하시겠습니까?")) {
       axios
         .delete(
-          `https://tennis365-api.herokuapp.com/board/view-post/${id}/delete`,
+          `http://localhost:3001/board/view-post/${id}/delete`,
+          // `https://tennis365-api.herokuapp.com/board/view-post/${id}/delete`,
           {
             data: {
               id,
@@ -37,7 +38,8 @@ const ViewPost = () => {
         )
         .then((res) => {
           if (res.status === 200) {
-            history.push("/board/qna");
+            // history.push("/board/qna");
+            history.goBack();
           }
         });
     }
@@ -48,13 +50,14 @@ const ViewPost = () => {
       // .get(`http://localhost:3001/order/result/${id}`)
       .get(`https://tennis365-api.herokuapp.com/board/view-post/${id}`)
       .then((response) => {
+        console.log(response);
         if (response.status === 200) {
           setBody(
             EditorState.createWithContent(
-              convertFromRaw(JSON.parse(response[0].body))
+              convertFromRaw(JSON.parse(response.data[0].body))
             )
           );
-          setPost(response[0]);
+          setPost(response.data[0]);
         }
       });
 
@@ -96,7 +99,8 @@ const ViewPost = () => {
             </div>
           </div>
           <div className="view-post__header--col2">
-            {post.username === authState.username && (
+            {(post.username === authState.username ||
+              authState.isAdmin === 1) && (
               <div className="view-post__header--btns">
                 <button className="post-delete-btn" onClick={deletePost}>
                   삭제하기

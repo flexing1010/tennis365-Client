@@ -35,7 +35,7 @@ const DeleteItem = ({
 
   return (
     <>
-      {owner === authState.username ? (
+      {owner === authState.username || authState.isAdmin === 1 ? (
         <input
           className="deleteBtn"
           type="button"
