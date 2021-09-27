@@ -49,8 +49,8 @@ const OrderResult = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/order/result/${id}`)
-      // .get(`https://tennis365-api.herokuapp.com/order/result/${id}`)
+      // .get(`http://localhost:3001/order/result/${id}`)
+      .get(`https://tennis365-api.herokuapp.com/order/result/${id}`)
       .then((res) => {
         if (res.status === 200) {
           console.log(res, "tran", transaction);
