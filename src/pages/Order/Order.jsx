@@ -1,4 +1,3 @@
-import "./Order.scss";
 import { useContext, useEffect, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import OrderForm from "../../components/OrderForm/OrderForm";

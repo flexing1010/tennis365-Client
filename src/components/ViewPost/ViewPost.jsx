@@ -1,7 +1,6 @@
 import "./ViewPost.scss";
 import { useHistory, useParams } from "react-router";
-import { useAxios } from "../../hooks/useAxios";
-
+// import { useAxios } from "../../hooks/useAxios";
 import { Editor } from "@nick4fake/react-draft-wysiwyg";
 import { useContext, useEffect, useState } from "react";
 import { convertFromRaw, EditorState } from "draft-js";
@@ -16,10 +15,10 @@ const ViewPost = () => {
   const { authState } = useContext(AuthContext);
   let history = useHistory();
 
-  const { response } = useAxios({
-    method: "get",
-    url: `/board/view-post/${id}`,
-  });
+  // const { response } = useAxios({
+  //   method: "get",
+  //   url: `/board/view-post/${id}`,
+  // });
 
   const toEditPost = () => {
     history.push(`/board/view-post/${id}/edit`);
@@ -45,26 +44,42 @@ const ViewPost = () => {
   };
 
   useEffect(() => {
-    if (response) {
-      setBody(
-        EditorState.createWithContent(
-          convertFromRaw(JSON.parse(response[0].body))
-        )
-      );
-      setPost(response[0]);
-    }
-  }, [response]);
+    axios
+      // .get(`http://localhost:3001/order/result/${id}`)
+      .get(`https://tennis365-api.herokuapp.com/board/view-post/${id}`)
+      .then((response) => {
+        if (response.status === 200) {
+          setBody(
+            EditorState.createWithContent(
+              convertFromRaw(JSON.parse(response[0].body))
+            )
+          );
+          setPost(response[0]);
+        }
+      });
 
-  useEffect(() => {
-    if (response) {
-      setBody(
-        EditorState.createWithContent(
-          convertFromRaw(JSON.parse(response[0].body))
-        )
-      );
-      setPost(response[0]);
-    }
-  }, [window.reactTimestamp]);
+    // if (response) {
+    //   if (response.status === 200) {
+    //     setBody(
+    //       EditorState.createWithContent(
+    //         convertFromRaw(JSON.parse(response[0].body))
+    //       )
+    //     );
+    //     setPost(response[0]);
+    //   }
+    // }
+  }, [id]);
+
+  // useEffect(() => {
+  //   if (response) {
+  //     setBody(
+  //       EditorState.createWithContent(
+  //         convertFromRaw(JSON.parse(response[0].body))
+  //       )
+  //     );
+  //     setPost(response[0]);
+  //   }
+  // }, [window.reactTimestamp]);
 
   return (
     <div className="view-post">

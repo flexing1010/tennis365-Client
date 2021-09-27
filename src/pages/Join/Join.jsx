@@ -29,8 +29,8 @@ const Join = () => {
 
   const { values, handleInputChange } = useInputChanges(initValues);
 
+  //setFullAddress is needed even though it's not used
   const [fullAddress, setFullAddress, handleComplete] = usePostcode();
-  // const [address2, setAddress2] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   let history = useHistory();

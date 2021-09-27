@@ -46,10 +46,11 @@ const MobilePayment = () => {
           }
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
   return (
-    <div>
+    <div style={{ margin: "0 auto" }}>
       <h1>결제 확인중입니다</h1>
       {/* {orderData !== undefined && (
         <>

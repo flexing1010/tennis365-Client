@@ -38,22 +38,19 @@ const CreatePost = () => {
       .then((res) => {
         if (res.status === 200) {
           alert("글이 등록되었습니다");
+          history.goBack();
         }
       });
 
-    history.goBack();
     // history.push("/board/qna");
   };
 
   useEffect(() => {
-    // console.log(postTitle);
     // setContent(JSON.stringify(convertToRaw(editorState.getCurrentContent())));
     setContent(JSON.stringify(convertToRaw(editorState.getCurrentContent())));
     // setContent(
     //   JSON.stringify(draftToHtml(convertToRaw(editorState.getCurrentContent())))
     // );
-
-    // console.log(content);
   }, [editorState]);
   return (
     <div className="create-post">

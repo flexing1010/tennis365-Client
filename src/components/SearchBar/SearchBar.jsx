@@ -23,7 +23,6 @@ const SearchBar = () => {
       .then((res) => {
         if (res.data.errorMessage) {
           alert(res.data.errorMessage);
-          console.log(res.data.errorMessage);
         }
 
         history.push(`/search`, { searchResult: res.data });

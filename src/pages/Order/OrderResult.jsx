@@ -1,19 +1,13 @@
-import { useLocation, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 // import queryString from "query-string";
-// import { useEffect } from "react";
 import "./OrderResult.scss";
 import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
-import { useAxios } from "../../hooks/useAxios";
 import axios from "axios";
-// import axios from "axios";
 
 const OrderResult = () => {
   let history = useHistory();
-  let location = useLocation();
-  // let location = useLocation();
   let { id } = useParams();
-  // const response = location.state.response;
   const [transaction, setTransaction] = useState({});
   // const { search } = location;
   // const query = queryString.parse(search);
@@ -22,16 +16,7 @@ const OrderResult = () => {
   // const { response } = useAxios({
   //   method: "get",
   //   url: `/order/result/${id}`,
-
   // });
-
-  // const getTransaction = async () => {
-  //   let res = await axios.get(
-  //     // `http://localhost:3001/order/result/${id}`
-  //     `https://tennis365-api.herokuapp.com/order/result/${id}`
-  //   );
-  //   console.log(res);
-  // };
 
   const getPaymentMethod = (pay_method) => {
     // const { pay_method } = query;
@@ -53,23 +38,11 @@ const OrderResult = () => {
       .get(`https://tennis365-api.herokuapp.com/order/result/${id}`)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res, "tran", transaction);
           setTransaction(res.data.transaction[0]);
-          // location.reload();
         }
       });
-
-    // getTransaction();
-
-    // if (response) {
-    //   setTransaction(response.transaction[0]);
-    //   console.log(response, "tran", transaction);
-    // }
   }, [id]);
 
-  // useEffect(() => {
-  //   history.go(0);
-  // }, []);
   return (
     <section className="order-result">
       <p>결제가 완료되었습니다</p>

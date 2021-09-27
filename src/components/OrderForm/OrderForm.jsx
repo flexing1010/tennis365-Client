@@ -1,4 +1,4 @@
-import queryString from "query-string";
+// import queryString from "query-string";
 import AddressInput from "../AdressInput/AdressInput";
 import Input from "../Input/Input";
 import "./OrderForm.scss";
@@ -44,20 +44,12 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
       m_redirect_url: `https://sleepy-austin-0254fa.netlify.app/order/payment/${transactionInfo.order_id}/mobile`,
     };
 
-    // setOrderData({
-    //   user_id: transactionInfo.user_id,
-    //   order_id: transactionInfo.order_id,
-    //   status: 0,
-    //   orderItems,
-    //   amount: orderInfo.grandTotal,
-    // });
-
     const { IMP } = window;
     IMP.init("imp83950599");
 
     IMP.request_pay(data, (response) => {
       if (response.success === true) {
-        const query = queryString.stringify(response);
+        // const query = queryString.stringify(response);
 
         axios
           // .post("http://localhost:3001/order/result", {
@@ -111,7 +103,6 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
       name: user.name,
       email: user.email,
       buyer_tel: "",
-      // address1: fullAddress,
       address2: user.address2,
     });
     setFulladdress(user.address1);
