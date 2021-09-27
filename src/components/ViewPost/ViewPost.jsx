@@ -50,7 +50,7 @@ const ViewPost = () => {
       // .get(`http://localhost:3001/order/result/${id}`)
       .get(`https://tennis365-api.herokuapp.com/board/view-post/${id}`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           setBody(
             EditorState.createWithContent(

@@ -10,6 +10,8 @@
   gap: 1rem;
   //   background-color: black;
   .item {
+    // display: flex;
+    // flex-direction: column;
     margin: 0 auto;
     width: 48%;
     max-width: 600px;
@@ -56,6 +58,15 @@
         width: 60%;
       }
       //   width: 30%;
+    }
+  }
+}
+@media (max-width: $breakpoint-mobile) {
+  #display-item {
+    .item {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
     }
   }
 }
