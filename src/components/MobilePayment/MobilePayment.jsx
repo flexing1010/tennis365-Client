@@ -52,13 +52,6 @@ const MobilePayment = () => {
   return (
     <div style={{ margin: "0 auto" }}>
       <h1>결제 확인중입니다</h1>
-      {/* {orderData !== undefined && (
-        <>
-          <h1>{orderData.user_id}</h1>
-          <h1>{orderData.order_id}</h1>
-
-        </>
-      )} */}
     </div>
   );
 };
