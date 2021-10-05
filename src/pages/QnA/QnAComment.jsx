@@ -81,7 +81,9 @@ const QnAComment = () => {
     <div className="comment-container">
       <div className="comments__top">
         <h2>Comment</h2>
-        <Button text="댓글작성" handleBtnClick={handleCommentBtn} />
+        {authState.status && (
+          <Button text="댓글작성" handleBtnClick={handleCommentBtn} />
+        )}
       </div>
       <div className="comments">
         {comments.map((comment) => {

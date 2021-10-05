@@ -29,11 +29,6 @@ const QnA = () => {
   useEffect(() => {
     setQna(response);
   }, [response]);
-  // useEffect(() => {
-  //   console.log(window.reactTimestamp);
-  //   setQna(response);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [window.reactTimestamp]);
 
   return (
     <main className="qna">

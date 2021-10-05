@@ -3,18 +3,7 @@ import { useEffect } from "react";
 const PaymentApi = ({ handleInputChange }) => {
   const { IMP } = window;
   IMP.init("imp83950599");
-  //   const {
-  //     pay_method,
-  //     merchant_uid,
-  //     amount,
-  //     buyer_name,
-  //     buyer_tel,
-  //     buyer_email,
-  //   } = values;
-  //   const data={
-  //     pay_method,
-  //     merchant_uid
-  //   }
+
   useEffect(() => {});
   return (
     <div className="iamport-container">

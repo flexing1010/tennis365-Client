@@ -56,27 +56,11 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
           .post("https://tennis365-api.herokuapp.com/order/result", {
             user_id: transactionInfo.user_id,
             order_id: transactionInfo.order_id,
-            // buyer_name: data.buyer_name,
-            // name: data.name,
-            // buyer_addr: data.buyer_addr,
-            // buyer_tel: data.buyer_tel,
-            // pay_method: data.pay_method,
             merchant_uid: data.merchant_uid,
             imp_uid: response.imp_uid,
             status: 0,
             orderItems,
             amount: orderInfo.grandTotal,
-            // user_id: transactionInfo.user_id,
-            // order_id: transactionInfo.order_id,
-            // buyer_name: response.buyer_name,
-            // name: response.name,
-            // buyer_addr: response.buyer_addr,
-            // buyer_tel: response.buyer_tel,
-            // pay_method: response.pay_method,
-            // merchant_uid: response.merchant_uid,
-            // status: 0,
-            // orderItems,
-            // amount: orderInfo.grandTotal,
           })
           .then((res) => {
             if (res.status === 200) {
@@ -85,12 +69,6 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
               });
             }
           });
-
-        // history.push({
-        //   pathname: "/order/payment",
-        //   search: `?${query}`,
-
-        // });
       } else {
         // console.log(response);
       }
@@ -106,7 +84,6 @@ const OrderForm = ({ orderInfo, orderItems, user, transactionInfo }) => {
       address2: user.address2,
     });
     setFulladdress(user.address1);
-    // console.log(user, orderItems, orderInfo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 

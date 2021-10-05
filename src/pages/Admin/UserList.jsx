@@ -45,7 +45,7 @@ const UserList = () => {
 
   const handleClick = async () => {
     if (instance.getCheckedRows().length < 1) {
-      alert("주문 상품을 선택 해주세요.");
+      alert("선택된 사용자가 없습니다.");
       return;
     } else {
       await axios

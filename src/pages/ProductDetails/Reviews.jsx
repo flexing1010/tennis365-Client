@@ -77,7 +77,9 @@ const Reviews = () => {
     <div className="reviews-container">
       <div className="reviews__top">
         <h2>상품후기</h2>
-        <Button text="리뷰작성" handleBtnClick={handleReviewBtn} />
+        {authState.status && (
+          <Button text="리뷰작성" handleBtnClick={handleReviewBtn} />
+        )}
       </div>
       <div className="reviews">
         {reviews.map((review) => {
