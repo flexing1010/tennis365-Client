@@ -20,7 +20,6 @@
 
       .links-container {
         display: flex;
-        // justify-content: space-between;
         width: 50%;
         justify-content: flex-end;
         align-items: flex-end;
@@ -46,7 +45,6 @@
         max-width: 370px;
         width: 50%;
         a {
-          // max-width: 360px;
           width: 80%;
           display: flex;
           flex-direction: row;
@@ -54,17 +52,13 @@
           align-items: center;
           gap: 0.6rem;
           img {
-            // border: 2px solid #d43900;
-            // max-width: 100px;
             border-radius: 50%;
             width: 20%;
             min-width: 40px;
           }
           span {
             font-family: "Pacifico", cursive;
-            // font-weight: 600;
             min-width: 100px;
-            // font-style: italic;
             font-size: 1.2em;
           }
         }
@@ -77,16 +71,12 @@
           text-align: center;
           width: 100%;
           vertical-align: middle;
-          // color: rgba(255, 255, 255, 0.8);
           color: whitesmoke;
           font-style: italic;
         }
-        // flex-direction: ;
-        // justify-content: flex-end;
         align-items: flex-end;
         button {
           width: 110px;
-          // width: 100%;
           font-size: 0.8rem;
           font-weight: 600;
           text-decoration: none;
@@ -102,7 +92,6 @@
   .admin-menu {
     display: flex;
     justify-content: space-between;
-    // width: 100%;
     max-width: 1416px;
     margin: 0 auto;
     div {
@@ -152,8 +141,6 @@
   ul {
     .title {
       font-size: 2rem;
-      span {
-      }
     }
   }
 } ;

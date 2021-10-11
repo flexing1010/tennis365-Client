@@ -8,8 +8,6 @@
     align-items: center;
     .create-title {
       width: 90%;
-      // margin-left: 1.9rem;
-      // margin: 0 auto;
       margin-bottom: 2rem;
       .title {
         font-size: 1.2rem;
@@ -25,7 +23,6 @@
     margin: 0 auto;
   }
   .post-editor {
-    // border: 1px solid rgba(0, 0, 0, 0.5);
     height: 100%;
     min-height: 20vh;
     padding: 1.5rem;
@@ -34,13 +31,11 @@
     border-bottom-right-radius: 10px;
   }
   .post-btn {
-    // width: 100%;
     margin: 1rem auto 0 auto;
     display: flex;
     justify-content: center;
     .button-component {
       width: 100px;
-      //   margin: 0 auto;
     }
   }
 }

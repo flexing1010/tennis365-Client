@@ -12,7 +12,6 @@ import {
 
 const Navbar = () => {
   const { isShowing, setIsShowing } = useContext(SidebarContext);
-  // const location = useLocation();
   let history = useHistory();
   const { authState } = useContext(AuthContext);
 
@@ -25,13 +24,7 @@ const Navbar = () => {
 
   const handleSidebar = () => {
     setIsShowing(!isShowing);
-    // console.log(isShowing);
   };
-
-  // useEffect(() => {
-  //   setIsShowing(false);
-
-  // }, [location.pathname]);
 
   useEffect(() => {
     const unlisten = history.listen((location) => {
@@ -41,10 +34,6 @@ const Navbar = () => {
       unlisten();
     };
   }, [history, setIsShowing]);
-
-  // useEffect(() => {
-  //   console.log(typeof isShowing);
-  // }, [isShowing]);
 
   return (
     <div className="nav-container">

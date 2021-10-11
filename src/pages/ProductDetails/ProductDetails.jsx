@@ -43,14 +43,11 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (response) {
-      // console.log(product);
       setProduct(response.product[0]);
       setProductImgs(response.productImgs);
-      // console.log("product img", productImgs);
     }
   }, [product, response]);
 
-  ////// 왼쪽 사진 오른쪽 기본 정보 밑에 상세 정보 & 리뷰
   return (
     <section className="product-container">
       <DisplayProductDetails

@@ -28,8 +28,8 @@ const ViewPost = () => {
     if (window.confirm("글을 삭제하시겠습니까?")) {
       axios
         .delete(
-          `http://localhost:3001/board/view-post/${id}/delete`,
-          // `https://tennis365-api.herokuapp.com/board/view-post/${id}/delete`,
+          // `http://localhost:3001/board/view-post/${id}/delete`,
+          `https://tennis365-api.herokuapp.com/board/view-post/${id}/delete`,
           {
             data: {
               id,
@@ -38,7 +38,6 @@ const ViewPost = () => {
         )
         .then((res) => {
           if (res.status === 200) {
-            // history.push("/board/qna");
             history.goBack();
           }
         });
@@ -50,7 +49,6 @@ const ViewPost = () => {
       // .get(`http://localhost:3001/order/result/${id}`)
       .get(`https://tennis365-api.herokuapp.com/board/view-post/${id}`)
       .then((response) => {
-        // console.log(response);
         if (response.status === 200) {
           setBody(
             EditorState.createWithContent(
@@ -60,29 +58,7 @@ const ViewPost = () => {
           setPost(response.data[0]);
         }
       });
-
-    // if (response) {
-    //   if (response.status === 200) {
-    //     setBody(
-    //       EditorState.createWithContent(
-    //         convertFromRaw(JSON.parse(response[0].body))
-    //       )
-    //     );
-    //     setPost(response[0]);
-    //   }
-    // }
   }, [id]);
-
-  // useEffect(() => {
-  //   if (response) {
-  //     setBody(
-  //       EditorState.createWithContent(
-  //         convertFromRaw(JSON.parse(response[0].body))
-  //       )
-  //     );
-  //     setPost(response[0]);
-  //   }
-  // }, [window.reactTimestamp]);
 
   return (
     <div className="view-post">

@@ -10,8 +10,6 @@
   gap: 1rem;
   //   background-color: black;
   .item {
-    // display: flex;
-    // flex-direction: column;
     margin: 0 auto;
     width: 48%;
     max-width: 600px;
@@ -51,13 +49,11 @@
 
         img {
           width: 100%;
-          //   max-width: 200px;
         }
       }
       .item__descriptions {
         width: 60%;
       }
-      //   width: 30%;
     }
   }
 }

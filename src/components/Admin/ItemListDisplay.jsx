@@ -9,7 +9,6 @@ const ItemListDisplay = () => {
   const [itemList, setItemList] = useState([]);
   const [modalOpen, openModal, closeModal] = useModal();
   const [itemId, setItemId] = useState([]);
-  // const [targetItem, setTargetItem] = useState("");
 
   const onClickModal = (e) => {
     setItemId(e.target.closest("tr").id);
@@ -47,11 +46,7 @@ const ItemListDisplay = () => {
                 >
                   <td className="item-id">{item.id}</td>
                   <td className="item-img">
-                    <img
-                      // src={`https://tennis365-api.herokuapp.com/admin/${item.imgUrl}`}
-                      src={item.imgUrl}
-                      alt={item.product_name}
-                    />
+                    <img src={item.imgUrl} alt={item.product_name} />
                   </td>
                   <td className="item-name">{item.product_name}</td>
                 </tr>

@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../../Context";
 import axios from "axios";
 import DeleteItem from "./DeleteItem";
-// import DeleteItem from "./DeleteItem";
 
 const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
   const { products, setProducts } = useContext(ProductContext);
@@ -29,8 +28,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
     formData.append("imgUrl", coverImg[0]);
     formData.append("editInfo", JSON.stringify(values));
     formData.append("itemId", itemId);
-    // console.log(coverImg);
-    // console.log(itemImgs);
+
     axios
       // .patch("http://localhost:3001/admin/item-list", formData)
       .patch("https://tennis365-api.herokuapp.com/admin/item-list", formData)
@@ -65,10 +63,7 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
         imgUrl: targetItem.imgUrl,
       });
     }
-    setPreviewImg(
-      targetItem.imgUrl
-      // `https://tennis365-api.herokuapp.com/admin/${targetItem.imgUrl}`
-    );
+    setPreviewImg(targetItem.imgUrl);
   }, [targetItem]);
 
   const inputChange = (e) => {
@@ -77,7 +72,6 @@ const ItemListEdit = ({ itemId, closeModal, filterItemList }) => {
       ...values,
       [name]: value,
     });
-    // console.log(values);
   };
 
   return (

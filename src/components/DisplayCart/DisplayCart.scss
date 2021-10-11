@@ -14,7 +14,6 @@
 
   .cart__description {
     .item-name {
-      // width: 100%;
       font-size: 1.3rem;
       letter-spacing: 0.1rem;
     }
@@ -30,11 +29,9 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      // height: 100%;
       color: dodgerblue;
       margin: 0.5rem 0;
       justify-self: flex-start;
-      // align-self: center;
       &:hover {
         border-bottom: 1px solid dodgerblue;
         cursor: pointer;
@@ -51,11 +48,7 @@
     }
   }
 }
-// .item__quantity {
-//   input {
-//     width: 50px;
-//   }
-// }
+
 @media (min-width: $breakpoint-pc) {
   .cart_item {
     .cart__description {

@@ -2,7 +2,6 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DaumPostcode from "react-daum-postcode";
 import useModal from "../../hooks/useModal";
-// import usePostcode from "../../hooks/usePostcode";
 import Modal from "../Modal/Modal";
 import "./AdressInput.scss";
 

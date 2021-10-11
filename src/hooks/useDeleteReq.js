@@ -30,24 +30,3 @@ const useDeleteReq = (url, targetId) => {
 };
 
 export default useDeleteReq;
-
-// const DeleteButton = (props) => {
-//   const handleDelete = (e) => {
-//     console.log(e.target.parentNode);
-//     axios
-//       .delete(props.url, {
-//         data: {
-//           targetId: props.targetId,
-//         },
-//       })
-//       .then((res) => {
-//         console.log(res);
-//         alert(res.data);
-//         e.target.parentNode.remove();
-//       });
-//   };
-
-//   return <div onClick={handleDelete}>❎</div>;
-// };
-
-// export default DeleteButton;
